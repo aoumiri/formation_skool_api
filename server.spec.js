@@ -29,8 +29,8 @@ describe('Server', () => {
     it('should return a list of pokemons', (done) => {
       server.inject('/pokemons', (res) => {
         const pokemons = [
-          { name: "pikachu" },
-          { name: "dracaufeu" },
+          { name: "Pikachu" },
+          { name: "Dracaufeu" },
           { name: "Rattata" },
           { name: "Roucool" },
           { name: "Nidoran" },
