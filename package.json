@@ -1,0 +1,19 @@
+{
+  "name": "formation_skool_api",
+  "version": "0.0.1",
+  "description": "formation skoolers",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aoumiri/formation_skool_api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aoumiri/formation_skool_api/issues"
+  },
+  "homepage": "https://github.com/aoumiri/formation_skool_api#readme"
+}
