@@ -48,4 +48,32 @@ describe('Server', () => {
       });
     })
   });
+
+  describe('POST /pokemons', () => {
+    describe('when there is no payload', () => {
+      it('should return 400', (done) => {
+        server.inject({ method: 'post', url: '/pokemons'}, (res) => {
+          expect(res.statusCode).to.equal(400);
+          done();
+        });
+      });
+    });
+    describe('when there is a payload', () => {
+      it('should return 201', (done) => {
+        server.inject({ method: 'post', url: '/pokemons', payload: { name: 'Foobar'}}, (res) => {
+          expect(res.statusCode).to.equal(201);
+          done();
+        });
+      });
+      it('should add a new pokemon to the list', (done) => {
+        server.inject({ method: 'post', url: '/pokemons', payload: { name: 'Foobar'}}, (res) => {
+          server.inject('/pokemons', (res) => {
+            const foobar = res.result.find(pokemon => pokemon.name === 'Foobar')
+            expect(foobar).to.exist
+            done();
+          });
+        });
+      });
+    });
+  });
 });

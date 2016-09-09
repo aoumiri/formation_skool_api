@@ -10,5 +10,10 @@ module.exports = [
     method: 'GET',
     path: '/pokemons',
     handler: handlers.getAllPokemons
+  },
+  {
+    method: 'POST',
+    path: '/pokemons',
+    handler: handlers.createPokemon
   }
 ];
