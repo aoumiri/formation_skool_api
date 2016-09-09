@@ -19,9 +19,25 @@ describe('Server', () => {
       });
     });
 
+    it('should return an array', (done) => {
+      server.inject('/pokemons', (res) => {
+        expect(res.result).to.be.an('array');
+        done();
+      });
+    });
+
     it('should return a list of pokemons', (done) => {
       server.inject('/pokemons', (res) => {
-        expect(res.result).to.deep.equal([]);
+        const pokemons = [
+          { name: "pikachu" },
+          { name: "dracaufeu" },
+          { name: "Rattata" },
+          { name: "Roucool" },
+          { name: "Nidoran" },
+          { name: "Hypocéan" },
+          { name: "Kabuto" }
+        ];
+        expect(res.result).to.deep.equal(pokemons);
         done();
       });
     });

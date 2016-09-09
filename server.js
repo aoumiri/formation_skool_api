@@ -15,7 +15,8 @@ server.route({
   method: 'GET',
   path: '/pokemons',
   handler: function (request, reply) {
-    reply([]);
+    const data = require("./data.json");
+    reply(data);
   }
 });
 
