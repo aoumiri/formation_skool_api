@@ -1,17 +1,14 @@
+const handlers = require('./handlers');
+
 module.exports = [
   {
     method: 'GET',
     path: '/',
-    handler: function (request, reply) {
-      reply('Hello world!');
-    }
+    handler: handlers.helloWorld
   },
   {
     method: 'GET',
     path: '/pokemons',
-    handler: function (request, reply) {
-      const data = require("./data.json");
-      reply(data);
-    }
+    handler: handlers.getAllPokemons
   }
 ];
