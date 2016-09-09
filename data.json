@@ -1,9 +1,9 @@
 [
-  { "name": "Pikachu" },
-  { "name": "Dracaufeu" },
-  { "name": "Rattata" },
-  { "name": "Roucool" },
-  { "name": "Nidoran" },
-  { "name": "Hypocéan" },
-  { "name": "Kabuto" }
+  { "name": "Pikachu", "type": "Electrik" },
+  { "name": "Dracaufeu", "type": "Feu" },
+  { "name": "Rattata", "type": "Normal" },
+  { "name": "Roucool", "type": "Normal" },
+  { "name": "Nidoran", "type": "Normal" },
+  { "name": "Hypocéan", "type": "Eau" },
+  { "name": "Kabuto", "type": "Sol" }
 ]

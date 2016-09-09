@@ -1,6 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 const server = require('./server');
+chai.config.truncateThreshold = 0;
 
 describe('Server', () => {
   describe('GET /', () => {
@@ -28,18 +29,23 @@ describe('Server', () => {
 
     it('should return a list of pokemons', (done) => {
       server.inject('/pokemons', (res) => {
-        const pokemons = [
-          { name: "Pikachu" },
-          { name: "Dracaufeu" },
-          { name: "Rattata" },
-          { name: "Roucool" },
-          { name: "Nidoran" },
-          { name: "Hypocéan" },
-          { name: "Kabuto" }
-        ];
-        expect(res.result).to.deep.equal(pokemons);
+        expect(res.result).to.deep.equal(require('./data'));
         done();
       });
     });
+
+    describe('when I provide a list of fields', () => {
+      it('should return the appropriate fields', (done) => {
+        server.inject('/pokemons?fields=name', (res) => {
+          const pokemons = require('./data');
+          expect(res.result).to.eql(pokemons.map(pokemon => {
+            return {
+              name: pokemon.name
+            }
+          }));
+          done();
+        });
+      });
+    })
   });
 });
