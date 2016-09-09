@@ -11,6 +11,14 @@ server.route({
   }
 });
 
+server.route({
+  method: 'GET',
+  path: '/pokemons',
+  handler: function (request, reply) {
+    reply([]);
+  }
+});
+
 server.start((err) => {
 
   if (err) {
