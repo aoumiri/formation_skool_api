@@ -59,6 +59,14 @@ describe('Server', () => {
       });
     });
     describe('when there is a payload', () => {
+      describe('when name is missing', () => {
+        it('should return 400', done => {
+          server.inject({ method: 'post', url: '/pokemons', payload: {}}, (res) => {
+            expect(res.statusCode).to.equal(400);
+            done();
+          });
+        })
+      })
       it('should return 201', (done) => {
         server.inject({ method: 'post', url: '/pokemons', payload: { name: 'Foobar'}}, (res) => {
           expect(res.statusCode).to.equal(201);
