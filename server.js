@@ -9,7 +9,7 @@ const boom = require('boom');
 
 const server = new Hapi.Server();
 
-server.connection({ port : config.port });
+server.connection({ port : process.env.PORT || config.port });
 
 server.route(routes);
 
