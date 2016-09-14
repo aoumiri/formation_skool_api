@@ -1,5 +1,5 @@
 const Hapi = require('hapi');
-const routes = require('./routes');
+const routes = require('./lib/routes');
 const server = new Hapi.Server();
 
 server.connection({ port: 3000 });

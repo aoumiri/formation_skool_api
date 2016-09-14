@@ -1,7 +1,7 @@
 const chai = require('chai');
 const sinon = require('sinon');
 const expect = chai.expect;
-const handlers = require('./handlers');
+const handlers = require('./../lib/handlers');
 chai.use(require('sinon-chai'));
 
 describe('Handlers', () => {
@@ -28,7 +28,7 @@ describe('Handlers', () => {
       handlers.getAllPokemons({}, mySpy);
 
       // Then
-      expect(mySpy).to.have.been.calledWith(require('./data'));
+      expect(mySpy).to.have.been.calledWith(require('./../data'));
     });
 
     describe('when request has fields', () => {
