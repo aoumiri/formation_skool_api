@@ -6,6 +6,7 @@ const routes = require('./lib/routes');
 const config = require('./config');
 const bunyan = require('bunyan');
 const pkg = require('./package');
+const boom = require('boom');
 
 const server = new Hapi.Server();
 
@@ -42,7 +43,7 @@ server.ext('onRequest', (request, reply) => {
     return reply.continue();
   }
   if (require('./api_keys').indexOf(request.query.api_key) === -1) {
-    return reply().code(401);
+    return reply(boom.unauthorized('Invalid api_key'));
   }
   return reply.continue();
 });

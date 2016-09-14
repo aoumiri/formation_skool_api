@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/aoumiri/formation_skool_api#readme",
   "dependencies": {
+    "boom": "^4.0.0",
     "bunyan": "^1.8.1",
     "hapi": "^15.0.3",
     "hapi-bunyan": "^0.6.0",
