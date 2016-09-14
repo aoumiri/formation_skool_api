@@ -4,8 +4,7 @@ const inert = require('inert');
 const vision = require('vision');
 const routes = require('./lib/routes');
 const config = require('./config');
-const bunyan = require('bunyan');
-const pkg = require('./package');
+const logger = require('./logger');
 const boom = require('boom');
 
 const server = new Hapi.Server();
@@ -23,17 +22,11 @@ server.register([
       swaggerUIPath: '/documentation/swaggerui/',
       jsonPath: '/documentation/swagger.json'
     }
-  },
-  {
-    register: require('hapi-bunyan'),
-    options: {
-      logger: bunyan.createLogger({ name: pkg.name, level: 'info' })
-    }
   }
 ]);
 
 server.ext('onRequest', (request, reply) => {
-  request.log.info({
+  logger.info({
     id: request.id,
     method: request.method,
     path: request.path
@@ -49,7 +42,8 @@ server.ext('onRequest', (request, reply) => {
 });
 
 server.ext('onPreResponse', (request, reply) => {
-  request.log.info({
+  logger.info({
+    id: request.id,
     statusCode: request.response.statusCode
   });
   return reply.continue();
