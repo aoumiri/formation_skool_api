@@ -38,21 +38,21 @@ describe('Server', () => {
       it('should return the appropriate fields', (done) => {
         server.inject('/pokemons?fields=name', (res) => {
           const pokemons = require('./../data');
-          expect(res.result).to.eql(pokemons.map(pokemon => {
+          expect(res.result).to.eql(pokemons.map((pokemon) => {
             return {
               name: pokemon.name
-            }
+            };
           }));
           done();
         });
       });
-    })
+    });
   });
 
   describe('POST /pokemons', () => {
     describe('when there is no payload', () => {
       it('should return 400', (done) => {
-        server.inject({ method: 'post', url: '/pokemons'}, (res) => {
+        server.inject({ method: 'post', url: '/pokemons' }, (res) => {
           expect(res.statusCode).to.equal(400);
           done();
         });
@@ -60,24 +60,24 @@ describe('Server', () => {
     });
     describe('when there is a payload', () => {
       describe('when name is missing', () => {
-        it('should return 400', done => {
-          server.inject({ method: 'post', url: '/pokemons', payload: {}}, (res) => {
+        it('should return 400', (done) => {
+          server.inject({ method: 'post', url: '/pokemons', payload: {} }, (res) => {
             expect(res.statusCode).to.equal(400);
             done();
           });
-        })
-      })
+        });
+      });
       it('should return 201', (done) => {
-        server.inject({ method: 'post', url: '/pokemons', payload: { name: 'Foobar'}}, (res) => {
+        server.inject({ method: 'post', url: '/pokemons', payload: { name: 'Foobar' } }, (res) => {
           expect(res.statusCode).to.equal(201);
           done();
         });
       });
       it('should add a new pokemon to the list', (done) => {
-        server.inject({ method: 'post', url: '/pokemons', payload: { name: 'Foobar'}}, (res) => {
+        server.inject({ method: 'post', url: '/pokemons', payload: { name: 'Foobar' } }, () => {
           server.inject('/pokemons', (res) => {
-            const foobar = res.result.find(pokemon => pokemon.name === 'Foobar')
-            expect(foobar).to.exist
+            const foobar = res.result.find(pokemon => pokemon.name === 'Foobar');
+            expect(foobar).to.exist;
             done();
           });
         });

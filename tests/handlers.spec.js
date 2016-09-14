@@ -1,7 +1,8 @@
 const chai = require('chai');
 const sinon = require('sinon');
-const expect = chai.expect;
 const handlers = require('./../lib/handlers');
+
+const expect = chai.expect;
 chai.use(require('sinon-chai'));
 
 describe('Handlers', () => {
@@ -35,15 +36,15 @@ describe('Handlers', () => {
       it('should reply a list of pokemons with the asked fields', () => {
         // Given
         const mySpy = sinon.spy();
-        const request = {query: {fields: 'name'}};
+        const request = { query : { fields : 'name' } };
         const data = [
-          { "name": "Pikachu" },
-          { "name": "Dracaufeu"},
-          { "name": "Rattata"},
-          { "name": "Roucool"},
-          { "name": "Nidoran"},
-          { "name": "Hypocéan"},
-          { "name": "Kabuto"}
+          { name : 'Pikachu' },
+          { name : 'Dracaufeu' },
+          { name : 'Rattata' },
+          { name : 'Roucool' },
+          { name : 'Nidoran' },
+          { name : 'Hypocéan' },
+          { name : 'Kabuto' }
         ];
 
         // When
