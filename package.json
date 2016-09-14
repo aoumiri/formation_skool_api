@@ -17,7 +17,10 @@
   },
   "homepage": "https://github.com/aoumiri/formation_skool_api#readme",
   "dependencies": {
-    "hapi": "^15.0.3"
+    "hapi": "^15.0.3",
+    "hapi-swagger": "^7.2.0",
+    "inert": "^4.0.2",
+    "vision": "^4.1.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
