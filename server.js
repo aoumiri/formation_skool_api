@@ -20,7 +20,9 @@ server.register([
     register: swagger,
     options: {
       swaggerUIPath: '/documentation/swaggerui/',
-      jsonPath: '/documentation/swagger.json'
+      jsonPath: '/documentation/swagger.json',
+      schemes: [config.protocol],
+      host: config.host
     }
   }
 ]);

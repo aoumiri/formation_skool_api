@@ -1,4 +1,6 @@
 {
   "port": 3000,
-  "level": "debug"
+  "level": "debug",
+  "host": "localhost:3000",
+  "protocol": "http"
 }

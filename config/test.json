@@ -1,4 +1,6 @@
 {
   "port": 3011,
-  "level": "debug"
+  "level": "debug",
+  "host": "localhost:3011",
+  "protocol": "http"
 }
