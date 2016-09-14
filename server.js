@@ -4,9 +4,9 @@ const inert = require('inert');
 const vision = require('vision');
 const routes = require('./lib/routes');
 const server = new Hapi.Server();
-const port = process.env.PORT || 3000
+const config = require('./config');
 
-server.connection({ port });
+server.connection({ port: config.port });
 
 server.route(routes);
 

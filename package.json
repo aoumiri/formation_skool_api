@@ -4,7 +4,8 @@
   "description": "formation skoolers",
   "main": "server.js",
   "scripts": {
-    "test": "npm run lint && mocha tests/*.spec.js",
+    "test": "NODE_ENV=test mocha tests/*.spec.js",
+    "pretest": "npm run lint",
     "start": "node server.js",
     "watch": "nodemon server.js",
     "lint": "eslint ."
